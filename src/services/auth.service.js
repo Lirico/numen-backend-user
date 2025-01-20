@@ -25,6 +25,8 @@ const authService = async (request) => {
 
     const token = generateJWT(email)
 
+    console.log(token)
+
     return token;
 }
 

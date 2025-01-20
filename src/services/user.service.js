@@ -6,7 +6,6 @@ const crypt = require('bcryptjs');
 const createUserService = async (request, response) => {
     const newUser = request.body
 
-    // newUser.password -> pepe123 -> DB -> a7s6d78as6d78asd
     try {
         const encodedPassword = crypt.hashSync(newUser.password)
 

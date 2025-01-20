@@ -3,8 +3,6 @@ const userRouter = require('../routes/user.router');
 const authRouter = require('../routes/auth.router');
 const server = express();
 
-console.log(server)
-
 server.use(express.json())
 
 

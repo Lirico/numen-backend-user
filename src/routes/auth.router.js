@@ -2,7 +2,8 @@ const express = require('express');
 const authRouter = express.Router();
 const { check } = require('express-validator')
 const validatorMiddleware = require('../utils/validator')
-const authController = require('../controllers/auth.controller')
+const authController = require('../controllers/auth.controller');
+const validateToken = require('../utils/validateToken');
 
 // Consultar a la DB para poder loguearnos. 
 /* 
@@ -37,7 +38,9 @@ authRouter.post('/login',
     .isLength({min: 8, max: 20})
     .withMessage("La contraseña debe tener al menos 8 caracteres y un maximo de 20 caracteres."),
     validatorMiddleware,
+    validateToken,
     authController)
 
 
 module.exports = authRouter;
+
